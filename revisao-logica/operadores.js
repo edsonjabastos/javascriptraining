@@ -70,3 +70,23 @@ console.log(v1 <=10, v1 <= v2, v1 <= v3)
 console.log(v1 >= 10, v1 >= v2, v1 >= v3)
 console.log(v1 != 10, v1 != v2, v1 != v3)
 console.log(v1 !== 10, v1 !== v2, v1 !== v3)
+// OPERADORES LÓGICOS
+// Para uma pessoa viajar para o exterior:
+//    precisa ser maior de 18 anos      observar
+//                OU                        a
+//     acompannhado dos pais          precedência
+//                E                        de
+//        comprar o bilhete              valores
+let idade = 21
+let paisPresentes = false
+let comprouBilhete = false
+const podeViajar = (idade >= 18 || paisPresentes) && comprouBilhete
+console.log(`Pode viajar: ${podeViajar}`)
+v1 = 2
+v2 = 10
+v3 = 20
+let media0 = (v1 + v2 + v3) / 3
+let media1 = (v1 + v2) / 2
+console.log(`media entre v1, v2 ,v3: ${media0}`)
+console.log(`media entre v1 e v2: ${media1}`)
+console.log((3 * 2) ** 2)
