@@ -21,9 +21,28 @@
         _ola()
         // ARROW FUNCTIONS
         const __ola = () => {
-            document.write("HELLO ARROW FUNCTIONS!!!")
+            document.write("HELLO ARROW FUNCTIONS!!!<br>")
         }
         __ola()
-    </script>
+        // RETORNO DE VALORES
+        function pegaDia() {
+            return new Date().getDay()
+        }
+        let day = pegaDia()
+        document.write(day)
+        document.write("<br>")
+        document.write(pegaDia())
+        document.write("<br>")
+        // FUNÇÕES QUE RECEBEM PARÂMETROS
+        function somar(n1 = 0, n2 = 0){
+            return n1 + n2
+        }
+        let soma = somar(3, 5)
+        document.write(soma)
+        document.write("<br>")
+        document.write(somar(10, 4))
+        document.write("<br>")
+        alert(somar(10, 10))
+        </script>
 </body>
 </html>
