@@ -1,5 +1,5 @@
 const pessoa = {
-    nome: "maria",
+    nome: "Maria",
     idade: 28,
     "email": "ela@server.com"
 }

@@ -8,7 +8,7 @@ let soma = ""
 try {
     let soma = sum(3, "a")
 } catch(e) {
-    alert("ocorreeu um erro")
+    console.log("ocorreeu um erro")
     console.log(e.message)
 }
 console.log(soma)
