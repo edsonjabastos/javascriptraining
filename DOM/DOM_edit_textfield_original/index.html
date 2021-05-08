@@ -30,8 +30,8 @@
             <section class="content-section">
                 <div id="newsletterForm">
                     <label for="txtEmail">Email:</label>
-                    <input type="email" id="txtEmail" autocomplete="off" disabled value="daniel@server.com">
-                    <button id="btn">editar</button>
+                    <input type="email" onblur="disableEmail()" id="txtEmail" autocomplete="off" disabled value="daniel@server.com">
+                    <button id="btn" onclick="editEmail()">editar</button>
                 </div>
             </section>
 
