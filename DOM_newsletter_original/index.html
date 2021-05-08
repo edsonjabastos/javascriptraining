@@ -17,13 +17,19 @@
     <div id="principal">
         <header class="hero">
 
-            <!--<div class="top-bar">
-                <p>Bem-vindo(a), </p>
-            </div>-->
+
 
             <div class="hero-content">
                 <h1>Curso Javascript Completo</h1>
-                <p>Aprenda Javascript de verdade</p>
+                <h2>Cadastre-se em nossa newsletter</h2>
+                <div id="newsletterForm">
+                    <label for="txtEmail">Email:</label>
+                    <input type="email" id="txtEmail" autocomplete="off">
+                    <button id="btn" onclick="registerEmail()">Enviar</button>
+                </div>
+                <div id="newsletterFeedback">
+
+                </div>
             </div>
         </header>
 
@@ -64,7 +70,8 @@
 
         </footer>
     </div>
-<script src="js/saudacao.js"></script>
+
+    <script src="js/newsletter.js"></script>
 </body>
 
 </html>
