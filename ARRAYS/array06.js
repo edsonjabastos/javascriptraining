@@ -12,8 +12,6 @@ console.log(arrayX)
 console.log(reduceX)
 const names = ["Edson", "Daiane", "Edgar", "Eunice", "Debora", "João", "Maria", "Suzi", "Honda", "Matilda"]
 let namesInAlphabetOrder = names.reduce(function (names, currentNames) {
-    /*
-    */
     let firstLetter = currentNames[0]
     if (names[firstLetter]){
         names[firstLetter] ++
