@@ -13,6 +13,12 @@
         .underlined{
           border-bottom: 3px solid currentColor;
         }
+        .reproved{
+            background-color: red;
+        }
+        .aproved{
+            background-color: green;
+        }
       </style>
     </head>
 
@@ -26,7 +32,7 @@
         </div>
         <h2 class="materialize-red-text text-lighten-2 underlined">Dados de Alunos</h2>
 
-        <table class="striped">
+        <table>
         <thead>
           <tr>
               <th>Nome</th>
@@ -66,18 +72,13 @@
                 student.avaregeS = avarege.apply(null, student.scoreS)
             })
             const html = students.map(student => `
-            <tr>
+            <tr class="${student.avaregeS < 6 ? "reproved" : "aproved"}">
               <td>${student.name}</td>
-              <td>${student.scoreS[0]}</td>
-              <td>${student.scoreS[1]}</td>
-              <td>${student.scoreS[2]}</td>
-              <td>${student.scoreS[3]}</td>
+              ${student.scoreS.map(n => `<td> ${n} </td>`).join("")}     
               <td>${student.avaregeS}</td>
             </tr>
             `).join("")
             document.querySelector("tbody").innerHTML = html
-            console.log(html)
-            console.log(students)
         })()
       </script>
     </body>
