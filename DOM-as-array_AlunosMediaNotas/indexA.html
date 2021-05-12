@@ -38,98 +38,9 @@
               
           </tr>
         </thead>
-
         <tbody>
-            <tr>
-              <td>Daniel</td>
-              <td>10</td>
-              <td>3</td>
-              <td>7.5</td>
-              <td>3</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>Maria</td>
-              <td>10</td>
-              <td>9</td>
-              <td>3</td>
-              <td>9.5</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>João</td>
-              <td>10</td>
-              <td>4.5</td>
-              <td>1</td>
-              <td>3.5</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>Joana</td>
-              <td>1</td>
-              <td>3</td>
-              <td>9</td>
-              <td>1.5</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>José</td>
-              <td>10</td>
-              <td>4.5</td>
-              <td>7</td>
-              <td>3</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>Arnaldo</td>
-              <td>10</td>
-              <td>4.5</td>
-              <td>7</td>
-              <td>3</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>Lucas</td>
-              <td>4.5</td>
-              <td>9</td>
-              <td>8</td>
-              <td>3</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>Luana</td>
-              <td>3</td>
-              <td>7</td>
-              <td>9</td>
-              <td>3</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>Beatriz</td>
-              <td>10</td>
-              <td>4</td>
-              <td>7</td>
-              <td>9</td>
-              <td></td>
-            </tr>
-          
-            <tr>
-              <td>Sergio</td>
-              <td>4.5</td>
-              <td>9.5</td>
-              <td>10</td>
-              <td>2</td>
-              <td></td>
-            </tr>
-          </tbody>
+
+        </tbody>
       </table>
       </div>
 
@@ -138,39 +49,34 @@
       <script src="js/calc.js"></script>
       <script>
         (function(){
-          function scoreHandler(i){
-            const trHeader = document.querySelector("thead tr")
-            const thsHeader = document.querySelectorAll("th")
-            const th = trHeader.querySelector(`[student-score="${i}"]`)
-            console.log(th)
-            //thsHeader.indexof(th)
-            //const j = Array.prototype.indexOf.call(thsHeader, th)
-            //const j = Array.from(thsHeader).indexOf(th)
-            const j = [...thsHeader].indexOf(th)
-            return j  
-          }
-          const banknote_indices = {
-            sc1: scoreHandler("s1"),
-            sc2: scoreHandler("s2"),
-            sc3: scoreHandler("s3"),
-            sc4: scoreHandler("s4"),
-            avaregeB: scoreHandler("avaregeA")
-          };
-          const trs = document.querySelectorAll("tbody tr")
-          let x = 0
-          let media = 0
-          while (trs[x]) {
-            console.log(trs[x])
-            const tds = trs[x].querySelectorAll("td")
-            avaregeC = avarege(
-              parseFloat(tds[banknote_indices.sc1].textContent),
-              parseFloat(tds[banknote_indices.sc2].textContent),
-              parseFloat(tds[banknote_indices.sc3].textContent),
-              parseFloat(tds[banknote_indices.sc4].textContent)
-            )
-            x++
-            tds[banknote_indices.avaregeB].textContent = avaregeC
-          }
+            const students = [
+                { name: "Daniel", sc1: 10, sc2: 3, sc3: 7.5, sc4: 3 },
+                { name: "Maria", sc1: 10, sc2: 9, sc3: 3, sc4: 9.5 },
+                { name: "João", sc1: 10, sc2: 4.5, sc3: 1, sc4: 3.5 },
+                { name: "Joana", sc1: 1, sc2: 3, sc3: 9, sc4: 1.5 },
+                { name: "José", sc1: 10, sc2: 4.5, sc3: 7, sc4: 3 },
+                { name: "Arnaldo", sc1: 10, sc2: 4.5, sc3: 7, sc4: 3 },
+                { name: "Lucas", sc1: 4.5, sc2: 9, sc3: 8, sc4: 3 },
+                { name: "Luana", sc1: 3, sc2: 7, sc3: 9, sc4: 3 },
+                { name: "Beatriz", sc1: 10, sc2: 4, sc3: 7, sc4: 9 },
+                { name: "Sergio", sc1: 4.5, sc2: 9.5, sc3: 10, sc4: 2 }
+            ];
+            students.forEach(student =>{
+                student.avaregeS = avarege(student.sc1, student.sc2, student.sc3, student.sc4)
+            })
+            const html = students.map(student => `
+            <tr>
+              <td>${student.name}</td>
+              <td>${student.sc1}</td>
+              <td>${student.sc2}</td>
+              <td>${student.sc3}</td>
+              <td>${student.sc4}</td>
+              <td>${student.avaregeS}</td>
+            </tr>
+            `).join("")
+            document.querySelector("tbody").innerHTML = html
+            console.log(html)
+            console.log(students)
         })()
       </script>
     </body>
