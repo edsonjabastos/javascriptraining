@@ -10,28 +10,30 @@
 <body>
     <h1>FIRST EXAMPLE WITH XMLHttpRequest</h1>
     <Script>
-        const xhr = new XMLHttpRequest()
-        xhr.open("GET", "dados.json")
-        xhr.send(null)
-        xhr.onreadystatechange = checkAJAX
-        function checkAJAX(){
-            if (xhr.readyState === 4) {
-                console.log(xhr.readyState)
-                if (xhr.status === 200 || xhr.status === 304) {
-                    console.log(typeof xhr.responseText)
-                    const json = JSON.parse(xhr.responseText)
-                    console.log(json)
-                    console.log(json[0])
-                    console.log(json[0].name)
-                    console.log(json[0].email)
-                    showData(json)
-                } else {
-                    alert("happen an error with server! " + xhr.status)
+        function createXMLHttreques(method, url, data = null, cb){
+            const xhr = new XMLHttpRequest()
+            xhr.open(method, url)
+            xhr.send(null)
+            xhr.onreadystatechange = checkAJAX
+            function checkAJAX(){
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200 || xhr.status === 304) {
+                        const json = JSON.parse(xhr.responseText)
+                        if(typeof cb === "function"){
+                            cb(json)
+                        }
+                    } else if (typeof cb === "function"){
+                        cb({
+                            status: xhr.status,
+                            message: "happen an error with server! "
+
+                        })
+                    }
                 }
             }
-        }
-        function showData(dados){
-
+            function showData(dados){
+                
+            }
         }
     </Script>
 </body>
