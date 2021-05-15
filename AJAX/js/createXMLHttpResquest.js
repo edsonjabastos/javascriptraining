@@ -1,4 +1,4 @@
-function createXMLHttpResquest(method, url, cb, data = null) {
+export function createXMLHttpResquest(method, url, cb, data = null) {
     const xhr = new XMLHttpRequest()
     xhr.open(method, url)
     xhr.send(data)
@@ -12,9 +12,9 @@ function createXMLHttpResquest(method, url, cb, data = null) {
                 }
             } else if (typeof cb === "function"){
                 cb({
+                    error: true,
                     status: xhr.status,
                     message: "happen an error with server! ",
-                    obj: xhr
                 })
             }
         }

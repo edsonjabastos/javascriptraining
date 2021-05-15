@@ -11,10 +11,12 @@
     <h1>FIRST EXAMPLE WITH XMLHttpRequest</h1>
     <script src="createXMLHttpResquest.js"></script>
     <Script>
-        createXMLHttpResquest("GET", "dados@.json", showUsers)
+        createXMLHttpResquest("GET", "dados.json", showUsers)
+        console.log("before !")
         function showUsers(data){
             console.log(data)
         }
+        console.log("after !")
     </Script>
 </body>
 </html>
