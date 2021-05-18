@@ -92,10 +92,11 @@ input[type="submit"]:hover {
 }
 
 .todo-item {
-    display:grid;
-    grid-template-columns: 1fr minmax(20rem,auto) 1fr 1fr;
+    display:flex;
+    gap: 16px;
+    /*grid-template-columns: 1fr minmax(20rem,auto) 1fr 1fr;
     grid-template-rows: auto;
-    column-gap: .8rem;
+    column-gap: .8rem;*/
     
     margin:0 0 2rem;
     padding:.8rem 2rem;
@@ -135,15 +136,16 @@ input[type="submit"]:hover {
 }
 
 .task-name{
-    grid-column: 2/3;
-
+    /*grid-column: 2/3;*/
+    flex: 1;
     background-color:#f2f2f2;
     padding:1rem;
     font-size:1.1rem;
 }
 
 .fa-edit{
-    grid-column: 3/4;   
+    /*grid-column: 3/4;*/
+    /*margin-right: 16px;*/
 }
 
 /*Container que abre ao clicar no icon do lapis para editar tarefa*/
