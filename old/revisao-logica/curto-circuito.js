@@ -15,7 +15,7 @@ let isValid = true
 if (isValid) {
     console.log("é válido.")
 }
-isValid = true
-isValid && console.log("é válido.")
 isValid = false
+isValid && console.log("é válido.")
+isValid = true
 isValid || console.log("não é válido.")
