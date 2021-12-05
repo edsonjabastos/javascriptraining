@@ -17,10 +17,33 @@ const carrinho = [
     { nome: 'Tesoura', qtde: 1, preco: 19.20 },
 ]
 
+// const nomesItems = obj1 => obj1.nome
+// const nomeItemsCarrinho = carrinho.map(nomesItems)
+// console.log(nomeItemsCarrinho)
+
+// const qtdeXValor = qtdeXValor => qtdeXValor.qtde * qtdeXValor.preco
+// const qtdeXValorCarrinho = carrinho.map(qtdeXValor)
+// console.log(qtdeXValorCarrinho)
+
+
+Array.prototype.meuMap = function(fn) {
+    const arrayMeuMap = []
+    for(let i = 0; i < this.length; i++) {
+        const resultado = fn(this[i], i, this)
+        // arrayMeuMap.push(resultado)
+        // arrayMeuMap.push(fn(this[i], i, this))
+        arrayMeuMap.push(`@.@ ==> ${resultado}`)
+    }
+    return arrayMeuMap
+    // for(let el of this){
+    //     fn(el)
+    // }
+}
+
 const nomesItems = obj1 => obj1.nome
-const nomeItemsCarrinho = carrinho.map(nomesItems)
+const nomeItemsCarrinho = carrinho.meuMap(nomesItems)
 console.log(nomeItemsCarrinho)
 
 const qtdeXValor = qtdeXValor => qtdeXValor.qtde * qtdeXValor.preco
-const qtdeXValorCarrinho = carrinho.map(qtdeXValor)
+const qtdeXValorCarrinho = carrinho.meuMap(qtdeXValor)
 console.log(qtdeXValorCarrinho)
