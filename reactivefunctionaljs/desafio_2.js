@@ -35,11 +35,24 @@ const totalPrecoProdutos = (acc, el) => {
         media: novoTotal / novaQtde
     }
 }
+
+Array.prototype.meuReduce = function(fn, inicial) {
+    let acc = inicial
+    for(let i = 0; i < this.length; i++) {
+        if(!acc && i === 0){
+            acc = this[i]
+        } else {
+            acc = fn(acc, this[i], i, this)
+        }
+    }
+    return acc
+}
+
 const mediaInicial = { qtde: 0, total: 0, media: 0}
 const media = carrinho
     .filter(isFragil)
     .map(totalPrecoPorItem)
-    .reduce(totalPrecoProdutos, mediaInicial)
+    .meuReduce(totalPrecoProdutos, mediaInicial)
     .media
 
 console.log(`A media é ===> ${media}.`)
