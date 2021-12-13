@@ -7,8 +7,11 @@
 
 // init()
 
-(function(){
+(function(win, doc){
     let isValid = false
+
+    win.alert('eaerr man!')
+
     console.log('menu', isValid)
 
     function init(){
@@ -17,4 +20,4 @@
 
     init()
     
-})()
+})(window, document)
