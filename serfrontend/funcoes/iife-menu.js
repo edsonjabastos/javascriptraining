@@ -8,9 +8,12 @@
 // init()
 
 (function(win, doc){
-    let isValid = false
+    'use strict'
 
-    win.alert('eaerr man!')
+    let isValid = false
+    // isValid = false
+
+    // win.alert('eaerr man!')
 
     console.log('menu', isValid)
 
@@ -21,3 +24,5 @@
     init()
     
 })(window, document)
+
+// console.log('isValid ==> ', isValid)
