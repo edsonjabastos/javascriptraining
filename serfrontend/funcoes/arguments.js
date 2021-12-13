@@ -1,4 +1,6 @@
-function somar() {
+// const somar = () => {} // usando arrow functions não temos acesso ao arguments
+
+const somar = function() {
     console.log(arguments)
 
     let total = 0
