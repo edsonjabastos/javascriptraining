@@ -8,4 +8,5 @@ fn.lerDiretorio(caminho)
   .then(arquivosSRT => fn.lerArquivos(arquivosSRT))
   .then(conteudos => conteudos.join('\n'))
   .then(todConteudo => todConteudo.split('\n'))
+  .then(linhas => fn.removerSeVazio(linhas))
   .then(console.log);
