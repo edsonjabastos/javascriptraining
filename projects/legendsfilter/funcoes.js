@@ -84,6 +84,14 @@ function agruparElementos(palavras) {
   );
 }
 
+function ordernarPorAtributoNumerico(atributo, ordem = "asc") {
+  return function (array) {
+    const asc = (obj1, obj2) => obj1[atributo] - obj2[atributo];
+    const desc = (obj1, obj2) => obj2[atributo] - obj1[atributo];
+    return array.sort(ordem === "asc" ? asc : desc);
+  };
+}
+
 module.exports = {
   lerDiretorio,
   elementosTerminadosCom,
@@ -95,4 +103,5 @@ module.exports = {
   mesclarElementos,
   separarTextoPor,
   agruparElementos,
+  ordernarPorAtributoNumerico,
 };
