@@ -73,16 +73,15 @@ function separarTextoPor(simbolo) {
   };
 }
 
-function agruparPalavras(palavras) {
-  return palavras.reduce((agrupamento, palavra) => {
-    const p = palavra.toLowerCase();
-    if (agrupamento[p]) {
-      agrupamento[p] += 1;
-    } else {
-      agrupamento[p] = 1;
-    }
-    return agrupamento;
-  }, {});
+function agruparElementos(palavras) {
+  return Object.values(
+    palavras.reduce((acumulador, palavra) => {
+      const el = palavra.toLowerCase();
+      const qtd = acumulador[el] ? acumulador[el].qtd + 1 : 1;
+      acumulador[el] = { elemento: el, qtd };
+      return acumulador;
+    }, {})
+  );
 }
 
 module.exports = {
@@ -95,5 +94,5 @@ module.exports = {
   removerSimbolos,
   mesclarElementos,
   separarTextoPor,
-  agruparPalavras
+  agruparElementos,
 };
