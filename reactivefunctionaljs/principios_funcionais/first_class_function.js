@@ -12,4 +12,4 @@ const z = () => console.log("ZZZZzzzZZZzzz");
 
 console.log(x);
 console.log(y("Eaaerr meu chapa"));
-z()
+z();
