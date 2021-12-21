@@ -18,6 +18,11 @@ function tornarLento(texto) {
   return texto.split("").join(" ");
 }
 
-const resultado = composicao(gritar, enfatizar, tornarLento)("para");
+const exagerado = composicao(gritar, enfatizar, tornarLento)("para");
+const umPoucoMenosExagerado = composicao(
+  gritar,
+  enfatizar
+)("cuidado com o sapo");
 
-console.log(resultado);
+console.log(exagerado);
+console.log(umPoucoMenosExagerado);
