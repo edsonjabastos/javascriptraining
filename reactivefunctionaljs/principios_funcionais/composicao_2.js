@@ -1,7 +1,11 @@
 function composicao(...fns) {
   return function (valor) {
-    return fns.reduce((acc, fn) => {
-      return fn(acc);
+    return fns.reduce(async (acc, fn) => {
+      if (Promise.resolve(acc) === acc) {
+        return fn(await acc);
+      } else {
+        return fn(acc);
+      }
     }, valor);
   };
 }
@@ -15,14 +19,24 @@ function enfatizar(texto) {
 }
 
 function tornarLento(texto) {
-  return texto.split("").join(" ");
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(texto.split("").join(" "));
+    }, 3000);
+  });
 }
 
-const exagerado = composicao(gritar, enfatizar, tornarLento)("para");
-const umPoucoMenosExagerado = composicao(
-  gritar,
-  enfatizar
-)("cuidado com o sapo");
+const exagerado = composicao(gritar, enfatizar, tornarLento);
+const umPoucoMenosExagerado = composicao(gritar, enfatizar);
 
-console.log(exagerado);
-console.log(umPoucoMenosExagerado);
+exagerado("para").then(console.log);
+umPoucoMenosExagerado("cuidado com o sapo").then(console.log);
+
+// const exagerado = composicao(gritar, enfatizar, tornarLento)("para");
+// const umPoucoMenosExagerado = composicao(
+//   gritar,
+//   enfatizar
+// )("cuidado com o sapo");
+
+// console.log(exagerado);
+// console.log(umPoucoMenosExagerado);
