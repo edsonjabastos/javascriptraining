@@ -13,4 +13,12 @@ function obterResposta(pergunta) {
   });
 }
 
-obterResposta("que treta").then(console.log);
+function namorada() {
+  setTimeout(() => {
+    console.log("N: Pedir silêncio");
+    console.log("N: Apagar as luzes");
+    console.log("N: Surpresa");
+  }, 2000);
+}
+
+// obterResposta("que treta").then(console.log);
